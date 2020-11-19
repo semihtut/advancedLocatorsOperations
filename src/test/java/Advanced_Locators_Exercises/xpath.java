@@ -12,8 +12,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class xpath extends BasePage {
 
+    Map<String,String>bookPrice = new HashMap<>();
     @Test
     public void test(){
         Driver.get().manage().window().maximize();
@@ -26,7 +30,8 @@ public class xpath extends BasePage {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(bookName +" ="+ price(1)+"$");
+        bookPrice.put(bookName,price(1));
+        System.out.println("bookPrice = " + bookPrice);
 
 
         Driver.get().quit();
