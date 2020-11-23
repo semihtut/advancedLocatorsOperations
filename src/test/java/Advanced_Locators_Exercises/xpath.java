@@ -8,12 +8,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class xpath extends BasePage {
 
@@ -36,6 +40,17 @@ public class xpath extends BasePage {
         Driver.get().quit();
     }
 
+    @Test
+    public void test2(){
+        Driver.get().manage().window().maximize();
+        Driver.get().get("https://www.amazon.com/");
+        List<WebElement> tags = Driver.get().findElements(By.tagName("a"));
+        Boolean flag =IntStream.range(1,tags.size())
+                .anyMatch(x->tags.get(x).getText().equals("Semih"));
+        System.out.println(flag==true?"link var":"link yok");
+
+
+    }
     public static int test2(int num1,int num2){
         return num1>num2?num1+num2:num1*num2;
 
