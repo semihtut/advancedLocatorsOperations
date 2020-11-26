@@ -49,8 +49,16 @@ public class xpath extends BasePage {
                 .anyMatch(x->tags.get(x).getText().equals("Semih"));
         System.out.println(flag==true?"link var":"link yok");
 
+    }
+    @Test
+    public void test23(){
+        Driver.get().manage().window().maximize();
+        Driver.get().get("https://www.google.com/");
+        Driver.get().switchTo().frame(0);
+        Driver.get().findElement(By.xpath("(//span[@class='RveJvd snByac'])[3]")).click();
 
     }
+
     public static int test2(int num1,int num2){
         return num1>num2?num1+num2:num1*num2;
 
