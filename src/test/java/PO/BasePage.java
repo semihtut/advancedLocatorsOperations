@@ -30,6 +30,9 @@ public abstract class BasePage {
     @FindBy(css = ".a-price-fraction")
     protected List<WebElement> wholePricesFraction;
 
+
+
+
     public String price(int itemNumber){
         String price = BrowserUtils.getElementsText(wholePrices).get(itemNumber);
         String decimal = BrowserUtils.getElementsText(wholePricesFraction).get(itemNumber);

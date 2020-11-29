@@ -1,6 +1,7 @@
 package Advanced_Locators_Exercises;
 
 import PO.BasePage;
+import PO.GoogleBasePage;
 import Utilities.BrowserUtils;
 import Utilities.Driver;
 import Utilities.StringNameGenerator;
@@ -55,8 +56,16 @@ public class xpath extends BasePage {
         Driver.get().manage().window().maximize();
         Driver.get().get("https://www.google.com/");
         Driver.get().switchTo().frame(0);
-        Driver.get().findElement(By.xpath("(//span[@class='RveJvd snByac'])[3]")).click();
-
+        BrowserUtils.waitFor(2);
+        try {
+            Driver.get().findElement(By.xpath("(//span[@class='RveJvd snByac'])[3]")).click();
+        } catch (Exception e) {
+            System.out.println("No LOCATOR");
+        }
+        GoogleBasePage basePage = new GoogleBasePage();
+        basePage.searchBar.sendKeys("Semih Tut", Keys.ENTER);
+        BrowserUtils.waitFor(2);
+        System.out.println("basePage.firstItem.getText() = " + basePage.firstItem.getText());
     }
 
     public static int test2(int num1,int num2){
