@@ -63,9 +63,13 @@ public class xpath extends BasePage {
             System.out.println("No LOCATOR");
         }
         GoogleBasePage basePage = new GoogleBasePage();
-        basePage.searchBar.sendKeys("Semih Tut", Keys.ENTER);
+        basePage.searchBar.sendKeys("Asli Pirdal", Keys.ENTER);
         BrowserUtils.waitFor(2);
-        System.out.println("basePage.firstItem.getText() = " + basePage.firstItem.getText());
+        try {
+            System.out.println("basePage.firstItem.getText() = " + basePage.firstItem.getText());
+        } catch (Exception e) {
+            System.out.println("Unutamadim");;
+        }
     }
 
     public static int test2(int num1,int num2){
