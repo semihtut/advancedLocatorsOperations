@@ -375,6 +375,10 @@ public class BrowserUtils {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-
+    public static WebElement shadow(WebElement element) {
+        WebElement ele = (WebElement) ((JavascriptExecutor)Driver.get())
+                .executeScript("return arguments[0].shadowRoot", element);
+        return ele;
+    }
 
 }
