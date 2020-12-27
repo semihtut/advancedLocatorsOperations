@@ -59,14 +59,21 @@ public class LocatorChallange1 {
                 "=n%3A976419031%2Cn%3A%21976420031%2Cn%3A1389401031%2Cn%3A1389432031%2Cn%3A1805560031%2Cp" +
                 "_6%3AA14CZOWI0VEHLG%7CA1P3OPO356Q9ZB%7CA2HIN95H5BP4BL%2Cp_89%3AApple&ref=mega_elec_s23_1_2_1_6");
         Driver.get().manage().window().maximize();
-        List<WebElement> h2 = Driver.get().findElements(By.tagName("h2"));
+        List<WebElement> blackIP = Driver.get().findElements(By.xpath("//div[h2[a[span[contains(text(),' Black')]]]]" +
+                "/following-sibling::div[2]//span[@class='a-price-whole']"));
+
+        for(WebElement i:blackIP){
+            System.out.println("prices " + i.getText());
+        }
+        /*List<WebElement> h2 = Driver.get().findElements(By.tagName("h2"));
         List<WebElement> prices = Driver.get().findElements(By.className("a-price-whole"));
+        
         int size = prices.size();
         for(int i=0;i<=size;i++){
             if(h2.get(i).getText().contains("Black")){
                 System.out.println(prices.get(i).getText());
             }
-        }
+        }*/
 
     }
 }
