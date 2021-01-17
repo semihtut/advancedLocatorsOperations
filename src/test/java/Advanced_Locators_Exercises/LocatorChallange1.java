@@ -75,5 +75,15 @@ public class LocatorChallange1 {
             }
         }*/
 
+         /*List<WebElement> h2 = Driver.get().findElements(By.tagName("h2"));
+        List<WebElement> prices = Driver.get().findElements(By.className("a-price-whole"));
+
+        int size = prices.size();
+        for(int i=0;i<=size;i++){
+            if(h2.get(i).getText().contains("Black")){
+                System.out.println(prices.get(i).getText());
+            }
+        }*/
+
     }
 }
