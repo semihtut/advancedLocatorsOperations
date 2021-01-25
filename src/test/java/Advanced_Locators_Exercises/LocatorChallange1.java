@@ -114,6 +114,9 @@ public class LocatorChallange1 {
             #fancy  span selects any <span> elements that are inside of the element with id="fancy"
 
 
+            Need to study more abou CSS locators
+
+
 
 
 
