@@ -116,6 +116,20 @@ public class LocatorChallange1 {
 
             Need to study more abou CSS locators
 
+            ------------ Descendant Selector --------------
+        Select an element inside another element
+        A  B
+        Selects all B inside of A. B is called a descendant because it is inside of another element.
+        Examples
+            p  strong selects all <strong> elements that are inside of any <p>
+            #fancy  span selects any <span> elements that are inside of the element with id="fancy"
+
+
+            Need to study more abou CSS locators
+
+
+
+
 
 
 
