@@ -2,11 +2,11 @@ package Advanced_Locators_Exercises;
 
 import Utilities.BrowserUtils;
 import Utilities.Driver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.List;
 
@@ -125,22 +125,52 @@ public class LocatorChallange1 {
             #fancy  span selects any <span> elements that are inside of the element with id="fancy"
 
 
-            Need to study more abou CSS locators
-
-
-
-
-
-
-
-
-
-
-
 
          */
 
+    }
 
+    @Test
+    public void TC011() throws InterruptedException {
+
+        //Initialize the driver by your way
+        //Used WebDriverManager
+        WebDriverManager.firefoxdriver().setup();
+        WebDriver driver = new FirefoxDriver();
+
+        driver.manage().window().maximize();
+        driver.get("https://www.google.com/");
+        Thread.sleep(2000);
+        driver.switchTo().activeElement().sendKeys(Keys.TAB);
+        driver.switchTo().activeElement().sendKeys(Keys.TAB,Keys.ENTER);
+
+
+
+
+
+
+        String searchItem = "Selenium Tutorial";
+
+        // you can also use locator to send keys to the search bar
+        // I have used activeElement directly
+        driver.switchTo().activeElement().sendKeys("Selenium tutorial");
+
+        // For practice I have used Thread.sleep
+        // We should use explicitly wait
+        Thread.sleep(2000);
+
+        List<WebElement>suggestionSearch= driver.findElements(By.tagName("b"));
+        int length = suggestionSearch.size();
+
+        int count=0;
+        while(count<=length){
+            driver.switchTo().activeElement().sendKeys(Keys.ARROW_DOWN);
+            // when you click arrow down there is a new class occured in htm DOM called sbhl.
+            WebElement selectedItem = driver.findElement(By.cssSelector(".sbhl"));
+            System.out.println(selectedItem.getText());
+            count++;
+        }
+        driver.quit();
 
     }
 }
