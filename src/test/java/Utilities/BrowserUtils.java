@@ -381,4 +381,8 @@ public class BrowserUtils {
         return ele;
     }
 
+    public static String getTextWithJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor)Driver.get();
+        return (String) js.executeScript("return arguments[0].innerText", element);
+    }
 }

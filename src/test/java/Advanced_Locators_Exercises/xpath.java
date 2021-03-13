@@ -5,16 +5,18 @@ import PO.GoogleBasePage;
 import Utilities.BrowserUtils;
 import Utilities.Driver;
 import Utilities.StringNameGenerator;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +25,11 @@ import java.util.stream.IntStream;
 public class xpath extends BasePage {
 
     Map<String,String>bookPrice = new HashMap<>();
-    @Test
-    public void test(){
+    @Test(dataProvider ="getData")
+    public void test(String browser) throws MalformedURLException {
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setBrowserName(browser);
+        WebDriver driver = new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"),cap);
         Driver.get().manage().window().maximize();
         Driver.get().get("https://www.amazon.com/");
         String bookName = StringNameGenerator.bookName();
@@ -40,6 +45,12 @@ public class xpath extends BasePage {
 
         Driver.get().quit();
     }
+
+    @DataProvider(parallel = true)
+    public Object [][] getData(){
+        return new Object[][]{{"chrome"},{"firefox"}};
+    }
+
 
     @Test
     public void test2(){

@@ -135,42 +135,46 @@ public class LocatorChallange1 {
 
         //Initialize the driver by your way
         //Used WebDriverManager
-        WebDriverManager.firefoxdriver().setup();
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = null;
+        try {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
 
-        driver.manage().window().maximize();
-        driver.get("https://www.google.com/");
-        Thread.sleep(2000);
-        driver.switchTo().activeElement().sendKeys(Keys.TAB);
-        driver.switchTo().activeElement().sendKeys(Keys.TAB,Keys.ENTER);
+            driver.manage().window().maximize();
+            driver.get("https://www.google.com/");
+            driver.switchTo().newWindow(WindowType.TAB);
+            driver.get("https://www.google.com/");
+            driver.close();
+            Thread.sleep(2000);
+            driver.switchTo().activeElement().sendKeys(Keys.TAB);
+            driver.switchTo().activeElement().sendKeys(Keys.TAB,Keys.ENTER);
 
 
+            String searchItem = "Selenium Tutorial";
 
+            // you can also use locator to send keys to the search bar
+            // I have used activeElement directly
+            driver.switchTo().activeElement().sendKeys("Selenium tutorial");
 
+            // For practice I have used Thread.sleep
+            // We should use explicitly wait
+            Thread.sleep(2000);
 
+            List<WebElement>suggestionSearch= driver.findElements(By.tagName("b"));
+            int length = suggestionSearch.size();
 
-        String searchItem = "Selenium Tutorial";
-
-        // you can also use locator to send keys to the search bar
-        // I have used activeElement directly
-        driver.switchTo().activeElement().sendKeys("Selenium tutorial");
-
-        // For practice I have used Thread.sleep
-        // We should use explicitly wait
-        Thread.sleep(2000);
-
-        List<WebElement>suggestionSearch= driver.findElements(By.tagName("b"));
-        int length = suggestionSearch.size();
-
-        int count=0;
-        while(count<=length){
-            driver.switchTo().activeElement().sendKeys(Keys.ARROW_DOWN);
-            // when you click arrow down there is a new class occured in htm DOM called sbhl.
-            WebElement selectedItem = driver.findElement(By.cssSelector(".sbhl"));
-            System.out.println(selectedItem.getText());
-            count++;
+            int count=0;
+            while(count<=length){
+                driver.switchTo().activeElement().sendKeys(Keys.ARROW_DOWN);
+                // when you click arrow down there is a new class occured in htm DOM called sbhl.
+                WebElement selectedItem = driver.findElement(By.cssSelector(".sbhl"));
+                System.out.println(selectedItem.getText());
+                count++;
+            }
+        } finally {
+            driver.quit();
         }
-        driver.quit();
+        
 
     }
 }

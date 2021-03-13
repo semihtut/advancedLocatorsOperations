@@ -72,7 +72,10 @@ public class Driver {
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.setCapability("platform", Platform.ANY);
                     try {
-                        driverPool.set(new RemoteWebDriver(new URL("https://ec2-184-73-150-176.compute-1.amazonaws.com/wd/hub"),chromeOptions));
+                        //https://stackoverflow.com/questions/44614849/unable-to-see-selenium-grid-running-when-viewed-from-browser
+                        //$ docker-machine ip
+                        //http://192.168.99.100:4444/wd/selenium-hub
+                        driverPool.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"),chromeOptions));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
