@@ -15,7 +15,7 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.get(), this);
     }
 
-    @FindBy(xpath = "//*[@id='twotabsearchtextbox']")
+    @FindBy(id = "twotabsearchtextbox")
     protected WebElement searchBar;
 
     @FindBy(xpath = "(//div[@class='sg-row']//h2)[1]")
