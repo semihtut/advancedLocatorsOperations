@@ -47,9 +47,6 @@ public class RemoteDriver {
                 FirefoxOptions ffOptions = new FirefoxOptions();
                 ffOptions.setCapability("platform", Platform.ANY);
                 try {
-                    //https://stackoverflow.com/questions/44614849/unable-to-see-selenium-grid-running-when-viewed-from-browser
-                    //$ docker-machine ip
-                    //http://192.168.99.100:4444/wd/selenium-hub
                     driverPool.set(new RemoteWebDriver(new URL("http://192.168.99.100:4444/wd/hub"), ffOptions));
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
