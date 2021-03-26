@@ -22,3 +22,7 @@ Y
 )src/test/java/Utilities/RemoteDriver.java,5\9\596b99866a9ceff4a405857a9f01cc5d85821784
 i
 9src/test/java/Advanced_Locators_Exercises/EnumReader.java,2\2\2237cd52c1d7333024d1b81432eb5cb5894e12a1
+T
+$src/test/java/Utilities/DBUtils.java,7\f\7f31fddeeb39205c522c926f9b1b6782ff2c48ee
+`
+0src/test/java/Utilities/StringNameGenerator.java,2\f\2fb4d76c1c39a53b2faf25c00479c52b5d790813
