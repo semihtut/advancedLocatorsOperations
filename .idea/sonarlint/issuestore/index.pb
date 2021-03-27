@@ -26,3 +26,5 @@ T
 $src/test/java/Utilities/DBUtils.java,7\f\7f31fddeeb39205c522c926f9b1b6782ff2c48ee
 `
 0src/test/java/Utilities/StringNameGenerator.java,2\f\2fb4d76c1c39a53b2faf25c00479c52b5d790813
+R
+"src/test/java/PO/TestFlipCard.java,f\d\fd2e1fd70e9752c872924c40e7b19acf55456cbc

@@ -7,11 +7,34 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 
 public class BrowserUtils {
+
+    private static void until(Function<WebDriver, Boolean> waitCondition, Duration timeout){
+        WebDriver driver = Driver.get();
+        WebDriverWait webDriverWait = new WebDriverWait(driver, timeout);
+        webDriverWait.withTimeout(timeout);
+        try{
+            webDriverWait.until(waitCondition);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void untilJqueryIsDone(Duration timeoutInSeconds){
+
+        until((d) -> {
+            Boolean isJqueryCallDone = (Boolean)((JavascriptExecutor) Driver.get()).executeScript("return jQuery.active==0");
+            if (!isJqueryCallDone) System.out.println("JQuery call is in Progress");
+            return isJqueryCallDone;
+        }, timeoutInSeconds);
+    }
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
