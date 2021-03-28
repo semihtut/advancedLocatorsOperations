@@ -1,0 +1,16 @@
+package DeisgnPatternsForHighQualityTestAutomation.PageObjectModelWithComponents.FirstTraditionalWay;
+
+public class WebShopPage {
+    public void search(final String queryString) {
+        System.out.println("Enter " + queryString);
+        System.out.println("Click search button");
+    }
+
+    public void checkResultHeadline() {
+        System.out.println("Check if the headline is correct.");
+    }
+
+    public void checkResults() {
+        System.out.println("Check if there are search results.");
+    }
+}
