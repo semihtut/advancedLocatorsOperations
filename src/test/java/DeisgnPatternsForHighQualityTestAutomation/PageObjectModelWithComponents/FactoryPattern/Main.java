@@ -1,7 +1,7 @@
 package DeisgnPatternsForHighQualityTestAutomation.PageObjectModelWithComponents.FactoryPattern;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("FACTORY PATTERN");
         System.out.println("===============");
 

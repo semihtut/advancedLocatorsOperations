@@ -3,10 +3,12 @@ package DeisgnPatternsForHighQualityTestAutomation.PageObjectModelWithComponents
 public class WebShopPage {
 
     public SearchBar searchBar() {
+
         return new SearchBar();
     }
 
     public ResultList resultList() {
+
         return new ResultList();
     }
 }

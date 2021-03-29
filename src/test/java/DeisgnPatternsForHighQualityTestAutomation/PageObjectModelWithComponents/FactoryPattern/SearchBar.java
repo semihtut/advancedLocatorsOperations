@@ -8,8 +8,4 @@ public class SearchBar extends Component{
 
     }
 
-    @Override
-    public void initialize() {
-        super.initialize();
-    }
 }

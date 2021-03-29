@@ -3,13 +3,15 @@ package DeisgnPatternsForHighQualityTestAutomation.PageObjectModelWithComponents
 public class WebShopPage extends ComponentFactory{
 
 
-    public SearchBar searchBar() {
-        return new SearchBar();
+    public SearchBar searchBar() throws Exception {
+        return (SearchBar) ComponentFactory.getComponent("SearchBar");
+       // return new SearchBar();
     }
 
-    public ResultList resultList() {
+    public ResultList resultList() throws Exception {
 
-        return new ResultList();
+        return (ResultList) ComponentFactory.getComponent("ResultList");
+
     }
 }
 

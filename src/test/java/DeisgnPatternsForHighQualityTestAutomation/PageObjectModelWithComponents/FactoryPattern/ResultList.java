@@ -12,8 +12,5 @@ public class ResultList extends Component {
         System.out.println("Check if there are search results.");
     }
 
-    @Override
-    public void initialize() {
-        super.initialize();
-    }
+
 }
