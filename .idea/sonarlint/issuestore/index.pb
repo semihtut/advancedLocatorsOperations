@@ -86,3 +86,7 @@ tsrc/test/java/DeisgnPatternsForHighQualityTestAutomation/PageObjectModelWithCom
 {src/test/java/DeisgnPatternsForHighQualityTestAutomation/PageObjectModelWithComponents/FactoryPattern/ComponentFactory.java,6\f\6f936518ca528bfb8547cf97131eaf8f073de14f
 ¦
 vsrc/test/java/DeisgnPatternsForHighQualityTestAutomation/PageObjectModelWithComponents/FactoryPattern/WebShopPage.java,3\7\374027479d56061bfba020fab01c41f463c453b9
+k
+;src/test/java/OOP_Concept/SumCalculator/Sum_Calculator.java,c\0\c0bdd20a410d87b54a8c2445b658b7f24e931c5d
+a
+1src/test/java/OOP_Concept/SumCalculator/Main.java,a\f\afa8e8038aea4835bbc68c39d2750b630019e681
