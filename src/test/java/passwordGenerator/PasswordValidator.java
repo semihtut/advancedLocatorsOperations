@@ -10,24 +10,34 @@ public class PasswordValidator {
     private String errorMessage;
 
     private static Scanner scanner = new Scanner(System.in);
+    //javadoc
 
+    /**
+     *
+     * @param username
+     * @param currentPassword
+     */
     public PasswordValidator(String username, String currentPassword) {
         this.username = username;
         this.currentPassword = currentPassword;
     }
 
 
-    public boolean isValid(){
+    public boolean isValid() {
         return valid;
     }
 
     public String getErrorMessage(){
+
         return errorMessage;
     }
 
     public void closeScanner(){
+
         scanner.close();
     }
+
+
     public static PasswordValidator login(){
         System.out.println("Enter your username:");
         String username = scanner.nextLine();
@@ -39,6 +49,7 @@ public class PasswordValidator {
     }
 
     public void printPasswordRules(){
+
         System.out.println("Your new password must meet the following requirements:");
         System.out.println("* at least 8 characters long");
         System.out.println("* contain an uppercase letter");

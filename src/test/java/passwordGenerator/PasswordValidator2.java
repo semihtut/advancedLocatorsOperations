@@ -30,7 +30,7 @@ public class PasswordValidator2 {
         return currentPassword;
     }
 
-    public PasswordValidator2 checkPassword(String newPassword){
+    public void changePassword(String newPassword){
 
         valid = true;
         errorMessage = "";
@@ -61,7 +61,7 @@ public class PasswordValidator2 {
             errorMessage += "\n Your password must be different from your current password.";
         }
         setCurrentPassword(newPassword);
-        return new PasswordValidator2(newPassword);
+
     }
 
     public void checkPasswordIsValid() {
