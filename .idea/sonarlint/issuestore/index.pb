@@ -90,3 +90,5 @@ k
 ;src/test/java/OOP_Concept/SumCalculator/Sum_Calculator.java,c\0\c0bdd20a410d87b54a8c2445b658b7f24e931c5d
 a
 1src/test/java/OOP_Concept/SumCalculator/Main.java,a\f\afa8e8038aea4835bbc68c39d2750b630019e681
+[
++src/test/java/AutomationUniversityJava.java,3\8\3882d6c22db307ff82ed5fc8535d1ce4fd162175
