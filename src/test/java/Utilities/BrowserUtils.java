@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -258,6 +261,7 @@ public class BrowserUtils {
      * @param element
      */
     public static void clickWithJS(WebElement element) {
+        BrowserUtils.waitForVisibility(element,5);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
     }
@@ -405,7 +409,60 @@ public class BrowserUtils {
     }
 
     public static String getTextWithJS(WebElement element){
+
         JavascriptExecutor js = (JavascriptExecutor)Driver.get();
-        return (String) js.executeScript("return arguments[0].innerText", element);
+        return (String) js.executeScript("return arguments[0].textInner", element);
     }
+
+
+    public static void uploadFileByRobot(String filePath) {
+        String os_name = System.getProperty("os.name");
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        StringSelection str = new StringSelection(filePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+        if (os_name.toLowerCase().contains("mac")) {
+            BrowserUtils.waitFor(1);
+            robot.keyPress(KeyEvent.VK_META);
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_META);
+            robot.keyRelease(KeyEvent.VK_TAB);
+            robot.delay(500);
+            //Open Goto window
+            robot.keyPress(KeyEvent.VK_META);
+            robot.keyPress(KeyEvent.VK_SHIFT);
+            robot.keyPress(KeyEvent.VK_G);
+            robot.keyRelease(KeyEvent.VK_META);
+            robot.keyRelease(KeyEvent.VK_SHIFT);
+            robot.keyRelease(KeyEvent.VK_G);
+            //Paste the clipboard value
+            robot.delay(500);
+            robot.keyPress(KeyEvent.VK_META);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_META);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.delay(500);
+            //Press Enter key to close the Goto window and Upload window
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            robot.delay(500);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        } else if (os_name.toLowerCase().contains("windows")) {
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.delay(500);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        } else {
+            System.out.println("not a suitable OS");
+        }
+    }
+
 }
