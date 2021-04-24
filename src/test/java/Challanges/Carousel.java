@@ -27,7 +27,10 @@ public class Carousel {
 
         while (true) {
             rightArrow.click();
-            
+            rightArrow.click();rightArrow.click();
+            rightArrow.click();
+            rightArrow.click();
+
 
         }
     }
