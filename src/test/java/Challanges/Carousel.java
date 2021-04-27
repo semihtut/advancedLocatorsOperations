@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 public class Carousel {
     @Test
     public void handleWithCarousel() {
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -25,13 +26,9 @@ public class Carousel {
                         "/parent::h2/parent::div/following-sibling::" +
                         "div//span[@class='gw-icon feed-arrow'])[2]"));
 
+        //some advanced thoughts about the process
         while (true) {
             rightArrow.click();
-            rightArrow.click();rightArrow.click();
-            rightArrow.click();
-            rightArrow.click();
-
-
         }
     }
 }
