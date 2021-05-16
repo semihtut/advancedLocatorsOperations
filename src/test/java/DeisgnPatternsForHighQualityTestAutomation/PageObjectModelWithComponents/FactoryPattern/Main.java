@@ -7,6 +7,7 @@ public class Main {
 
         WebShopPage webshopPage = new WebShopPage();
         webshopPage.searchBar().search("Berlin");
+        webshopPage.resultList().checkResultHeadline();
     }
 
 }
