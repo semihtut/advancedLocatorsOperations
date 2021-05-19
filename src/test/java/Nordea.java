@@ -2,6 +2,8 @@ public class Nordea {
 
     public static void main(String[] args) {
 
+        int []smh ={1,2,31,1,2};
+        System.out.println("nordeaTest(smh) = " + nordeaTest(smh));
         /**
          * Given an array of ints, return true if the array is length 1 or more,
          * and the first element and the last element are equal.
@@ -15,13 +17,7 @@ public class Nordea {
 
     public static boolean nordeaTest(int [] arr){
 
-        if(arr.length<=1){
-            return false;
-        }else if(arr.length>1 && arr[0]==arr[arr.length-1]){
-            return true;
-        }else{
-            return false;
-        }
+        return arr.length > 1 && (arr[0] == arr[arr.length - 1]);
 
     }
 }

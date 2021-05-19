@@ -108,3 +108,5 @@ V
 &src/test/java/Challanges/Carousel.java,b\e\be3e4191adc2ac30df6c84cf9ce3c5f81a77f1f7
 T
 $src/test/java/Utilities/JSUtils.java,3\f\3f3713dbb2bf49de67c88f74aca895770a4c20ba
+I
+src/test/java/Nordea.java,6\7\67cae14e1d18039aca3ce762a1b27098ce2bf8ee
