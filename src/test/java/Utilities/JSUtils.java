@@ -8,6 +8,7 @@ public class JSUtils {
     private WebDriver driver;
 
     public JSUtils(WebDriver driver) {
+
         this.driver = driver;
     }
 

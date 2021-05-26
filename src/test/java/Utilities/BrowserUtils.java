@@ -396,7 +396,7 @@ public class BrowserUtils {
      *  checks that an element is present on the DOM of a page. This does not
      *    * necessarily mean that the element is visible.
      * @param by
-     * @param time
+     * @param time wait
      */
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
