@@ -110,3 +110,11 @@ T
 $src/test/java/Utilities/JSUtils.java,3\f\3f3713dbb2bf49de67c88f74aca895770a4c20ba
 I
 src/test/java/Nordea.java,6\7\67cae14e1d18039aca3ce762a1b27098ce2bf8ee
+p
+@src/test/java/Advanced_Locators_Exercises/LocatorChallange1.java,f\7\f77e4a70e92c10b781a2424d840261bef52968a1
+d
+4src/test/java/Advanced_Locators_Exercises/xpath.java,e\1\e144fa6fcdf7b8a6d900b99deccb78f3edbab949
+a
+1src/test/java/lambda/suppliers/DriverFactory.java,7\4\74c52bffa1b26848ff4d9e2177e54c442e7be1d8
+]
+-src/test/java/lambda/consumers/Consumers.java,0\b\0b7cd4e17db5adeedb44e90e79696dd92932c39d
