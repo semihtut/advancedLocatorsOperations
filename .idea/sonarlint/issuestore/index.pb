@@ -118,3 +118,5 @@ a
 1src/test/java/lambda/suppliers/DriverFactory.java,7\4\74c52bffa1b26848ff4d9e2177e54c442e7be1d8
 ]
 -src/test/java/lambda/consumers/Consumers.java,0\b\0b7cd4e17db5adeedb44e90e79696dd92932c39d
+I
+src/test/java/deneme.java,8\b\8b62abe183bdd290bec1fe9cdb3c575581f65a0f
