@@ -7,27 +7,27 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.sql.rowset.BaseRowSet;
+import java.time.Duration;
 import java.util.List;
 
 public class LocatorChallange1 {
 
     @Test
-    public void Test1() {
+    public void Test1() throws InterruptedException {
         Driver.get().get("https://books-pwakit.appspot.com/");
+//This Element is inside single shadow DOM.
+        Thread.sleep(1000);
+        WebElement shadowDomHostElement = Driver.get().findElement(By.cssSelector("book-app[apptitle='BOOKS']"));
+        WebElement last = BrowserUtils.giveMeShadowRoot(shadowDomHostElement);
 
-        WebElement searchBox = Driver.get().findElement(By.tagName("book-app"));
-        WebElement shadow = BrowserUtils.shadow(searchBox);
-        shadow.findElement(By.tagName("app-header"))
-                .findElement(By.className("toolbar-bottom"))
-                .findElement(By.tagName("book-input-decorator"));
+        Thread.sleep(2000);
+        last.findElement(By.tagName("input")).sendKeys("Semihhh");
 
-        shadow.findElement(By.id("input")).sendKeys("semihhhhhhhhhhhhhhhhhhhhhhhhhh");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         Driver.get().quit();
     }
@@ -147,7 +147,7 @@ public class LocatorChallange1 {
             driver.close();
             Thread.sleep(2000);
             driver.switchTo().activeElement().sendKeys(Keys.TAB);
-            driver.switchTo().activeElement().sendKeys(Keys.TAB,Keys.ENTER);
+            driver.switchTo().activeElement().sendKeys(Keys.TAB, Keys.ENTER);
 
 
             String searchItem = "Selenium Tutorial";
@@ -160,11 +160,11 @@ public class LocatorChallange1 {
             // We should use explicitly wait
             Thread.sleep(2000);
 
-            List<WebElement>suggestionSearch= driver.findElements(By.tagName("b"));
+            List<WebElement> suggestionSearch = driver.findElements(By.tagName("b"));
             int length = suggestionSearch.size();
 
-            int count=0;
-            while(count<=length){
+            int count = 0;
+            while (count <= length) {
                 driver.switchTo().activeElement().sendKeys(Keys.ARROW_DOWN);
                 // when you click arrow down there is a new class occured in htm DOM called sbhl.
                 WebElement selectedItem = driver.findElement(By.cssSelector(".sbhl"));
@@ -174,7 +174,7 @@ public class LocatorChallange1 {
         } finally {
             driver.quit();
         }
-        
+
 
     }
 }

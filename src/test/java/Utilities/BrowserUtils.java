@@ -266,6 +266,17 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
     }
 
+    public static void sendKeysWithJS(WebElement element, String message){
+        BrowserUtils.waitForVisibility(element,5);
+        JavascriptExecutor jse = (JavascriptExecutor)Driver.get();
+        jse.executeScript("arguments[0].value=\""+message+"\";", element);
+
+    }
+
+    public static WebElement giveMeShadowRoot(WebElement element){
+        return (WebElement) ((JavascriptExecutor) Driver.get()).
+                executeScript("return arguments[0].shadowRoot", element);
+    }
 
     /**
      * Scrolls down to an element using JavaScript

@@ -1,16 +1,24 @@
 package salary;
 
+import java.util.stream.Collectors;
+
 public class Income {
     final private static int salary = 3500;
 
-    public int allExpenses(){
+    public double allExpenses(){
         return ConfigReader.getAllExpensesAsMap().values()
                 .stream()
-                .mapToInt(Integer::valueOf)
+                .filter(entry->!entry.contains("tax_rate"))
+                .mapToDouble(Double::valueOf)
                 .sum();
+
     }
 
-    public int moneyInMyPocket(){
-        return salary-allExpenses();
+    public double moneyInMyPocket(){
+        return salary-allExpenses()-taxes();
+    }
+
+    public double taxes(){
+        return salary*Double.parseDouble(ConfigReader.get("tax_rate"));
     }
 }
