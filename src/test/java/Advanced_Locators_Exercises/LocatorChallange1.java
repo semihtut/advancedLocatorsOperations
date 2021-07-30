@@ -32,6 +32,9 @@ public class LocatorChallange1 {
         Driver.get().quit();
     }
 
+    /**
+     * Shadow DOM
+     */
     @Test
     public void Test2() {
         Driver.get().get("https://www.flipkart.com/");
