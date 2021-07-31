@@ -4,6 +4,7 @@ import java.util.EnumMap;
 
 public class EnumReader {
 
+     // Some changes about enums
     public enum RISKS{
         CRITICAL,
         HIGH,
